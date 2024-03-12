@@ -1,2 +1,4 @@
-package co.com.parcial.middlewaregraphql.records;public record Employees() {
+package co.com.parcial.middlewaregraphql.records;
+
+public record Employee() {
 }
