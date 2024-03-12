@@ -1,16 +1,17 @@
 type Query {
-    findById(id: ID): Employees
+    findEmployeeById(id: ID): Employee
+    findDepartmentById(id: ID): Department
 }
 
-type Employees{
+type Employee{
     id: ID,
     name: String,
     lastName: String,
     role: String
 }
 
-type Departments {
+type Department {
     departmentName: String,
     description: String,
-    employees: [Employees]
+    employees: [Employee]
 }
