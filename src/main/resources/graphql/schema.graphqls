@@ -1,6 +1,7 @@
 type Query {
     findEmployeeById(id: ID): Employee
     findDepartmentById(id: ID): Department
+    findEmployees: [Employee]
 }
 
 type Employee{
@@ -11,6 +12,7 @@ type Employee{
 }
 
 type Department {
+    id: ID,
     departmentName: String,
     description: String,
     employees: [Employee]
