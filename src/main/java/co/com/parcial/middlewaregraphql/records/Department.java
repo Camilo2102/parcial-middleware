@@ -1,17 +1,24 @@
 package co.com.parcial.middlewaregraphql.records;
 
 import co.com.parcial.middlewaregraphql.services.DepartmentService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import org.springframework.web.reactive.function.client.WebClient;
 
 
-@Component
-public record Department(String departmentName, String description, Employee[] employees) {
+public record Department(String id, String departmentName, String description, Employee[] employees) {
 
-    
+    static private DepartmentService departmentService = new DepartmentService(WebClient.builder());
 
-    static public Department findByDepartmentId(String id){
-        return new Department("", "", null);
+    public Department() {
+        this(null, null, null, null);
+    }
+
+    public Department(String id) {
+        this(id,null, null, null);
+    }
+
+    static public DepartmentData findByDepartmentId(String id) throws JsonProcessingException {
+        return departmentService.getById(id);
     }
 
 }

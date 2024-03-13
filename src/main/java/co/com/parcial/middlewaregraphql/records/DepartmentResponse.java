@@ -1,7 +1,7 @@
 package co.com.parcial.middlewaregraphql.records;
 
-public record BaseResponse(String[] errorMessages) {
-    public boolean hasErrors() {
-        return errorMessages != null && errorMessages.length > 0;
-    }
+import java.util.List;
+
+public record DepartmentResponse(DepartmentData data, boolean status) {
 }
+
