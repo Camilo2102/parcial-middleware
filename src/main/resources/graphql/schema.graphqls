@@ -11,9 +11,19 @@ type Employee{
     role: String
 }
 
+input EmployeeInput{
+    name: String,
+    lastName: String,
+    role: String
+}
+
 type Department {
     id: ID,
     departmentName: String,
     description: String,
     employees: [Employee]
+}
+
+type Mutation{
+    saveEmployee(input: EmployeeInput!): Employee
 }

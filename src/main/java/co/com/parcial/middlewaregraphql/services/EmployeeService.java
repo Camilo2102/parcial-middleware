@@ -1,5 +1,6 @@
 package co.com.parcial.middlewaregraphql.services;
 
+import co.com.parcial.middlewaregraphql.records.Employee;
 import co.com.parcial.middlewaregraphql.records.EmployeeData;
 import co.com.parcial.middlewaregraphql.records.EmployeeResponse;
 import co.com.parcial.middlewaregraphql.records.MultipleEmployeeResponse;
@@ -38,6 +39,21 @@ public class EmployeeService{
 
         ObjectMapper objectMapper = new ObjectMapper();
         MultipleEmployeeResponse response = objectMapper.readValue(responseBody, MultipleEmployeeResponse.class);
+
+        return response.data();
+    }
+
+    public EmployeeData save(Employee employee) throws JsonProcessingException {
+        String responseBody = this.webClientBuilder.build()
+                .post()
+                .uri("https://taller-d4cu.onrender.com/employees")
+                .bodyValue(employee)
+                .retrieve()
+                .bodyToMono(String.class)
+                .block();
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        EmployeeResponse response = objectMapper.readValue(responseBody, EmployeeResponse.class);
 
         return response.data();
     }
