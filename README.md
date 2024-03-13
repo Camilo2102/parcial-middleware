@@ -13,7 +13,7 @@ POST-> /employees/{id} -> Agrega un nuevo empleado a un departamento
   Body:
   {
     "name": "nombre",
-    "lastName": "apelliodo",
+    "lastName": "apellido",
     "role": "Count"
   }
 GET -> /employess/{id} ->Encuentra un empleado a través de su ID
