@@ -1,8 +1,9 @@
-type Query {
+xtype Query {
     findEmployeeById(id: ID): Employee
     findDepartmentById(id: ID): Department
     findDepartments: [Department]
     deleteDepartment(id: ID): Department
+    findEmployees: [Employee]
 }
 
 type Employee{
@@ -12,8 +13,19 @@ type Employee{
     role: String
 }
 
+input EmployeeInput{
+    name: String,
+    lastName: String,
+    role: String
+}
+
 type Department {
+    id: ID,
     departmentName: String,
     description: String,
     employees: [Employee]
+}
+
+type Mutation{
+    saveEmployee(input: EmployeeInput!): Employee
 }
