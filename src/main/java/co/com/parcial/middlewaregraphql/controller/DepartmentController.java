@@ -23,4 +23,9 @@ public class DepartmentController {
     public DepartmentData[] findDepartments() throws  JsonProcessingException{
         return Department.findDepartmnets();
     }
+
+    @QueryMapping
+    public DepartmentData deleteDepartment(@Argument String id) throws  JsonProcessingException{
+        return Department.deleteDepartmnet(id);
+    }
 }

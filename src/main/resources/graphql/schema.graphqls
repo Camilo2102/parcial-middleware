@@ -2,6 +2,7 @@ type Query {
     findEmployeeById(id: ID): Employee
     findDepartmentById(id: ID): Department
     findDepartments: [Department]
+    deleteDepartment(id: ID): Department
 }
 
 type Employee{

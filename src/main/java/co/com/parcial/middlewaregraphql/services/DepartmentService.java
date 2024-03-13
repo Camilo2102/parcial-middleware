@@ -41,4 +41,16 @@ public class DepartmentService {
         return response.data();
     }
 
+    public DepartmentData deleteDepartmnet(String id) throws JsonProcessingException{
+        String responseBody = this.webClientBuilder.build()
+                .delete()
+                .uri("https://taller-d4cu.onrender.com/departments/" + id)
+                .retrieve()
+                .bodyToMono(String.class)
+                .block();
+        ObjectMapper objectMapper = new ObjectMapper();
+        DepartmentResponse response = objectMapper.readValue(responseBody, DepartmentResponse.class);
+        return response.data();
+    }
+
 }

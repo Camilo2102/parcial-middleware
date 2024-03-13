@@ -25,6 +25,10 @@ public record Department(String id, String departmentName, String description, E
         return departmentService.getDepartmnets();
     }
 
+    static public DepartmentData deleteDepartmnet(String id) throws  JsonProcessingException{
+        return  departmentService.deleteDepartmnet(id);
+    }
+
 
 
 }
