@@ -21,4 +21,10 @@ public record Department(String id, String departmentName, String description, E
         return departmentService.getById(id);
     }
 
+    static public DepartmentData[] findDepartmnets() throws  JsonProcessingException{
+        return departmentService.getDepartmnets();
+    }
+
+
+
 }

@@ -18,4 +18,9 @@ public class DepartmentController {
     public DepartmentData findDepartmentById(@Argument String id) throws JsonProcessingException {
         return Department.findByDepartmentId(id);
     }
+
+    @QueryMapping
+    public DepartmentData[] findDepartments() throws  JsonProcessingException{
+        return Department.findDepartmnets();
+    }
 }
